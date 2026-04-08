@@ -132,6 +132,8 @@ export default function TrialOffer() {
           {/* ── CTAボタン ── */}
           <a
             href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block rounded bg-[var(--color-primary)] px-10 py-4 font-sans text-sm tracking-[0.2em] text-white transition-colors duration-300 hover:bg-neutral-800"
           >
             {TRIAL_OFFER_COPY.cta.label}

@@ -79,7 +79,7 @@ export default function Hero() {
           <div className="flex flex-col items-start gap-3">
 
             {/* メインCTA：filled ではなく outline-white で高級感を維持しつつ最強 */}
-            <Button href={LINE_URL} variant="outline-white">
+            <Button href={LINE_URL} variant="outline-white" target="_blank" rel="noopener noreferrer">
               {HERO_COPY.cta}
             </Button>
 

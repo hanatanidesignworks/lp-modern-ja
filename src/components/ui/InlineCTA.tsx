@@ -26,6 +26,8 @@ export default function InlineCTA() {
 
           <a
             href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block rounded border border-[var(--color-primary)] px-8 py-3 font-sans text-xs tracking-[0.2em] text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-white"
           >
             {INLINE_CTA_COPY.button}

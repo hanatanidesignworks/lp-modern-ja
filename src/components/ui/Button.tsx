@@ -8,6 +8,8 @@ type Props = {
   href: string;
   variant?: Variant;
   className?: string;
+  target?: string;
+  rel?: string;
 };
 
 const variantStyles: Record<Variant, string> = {
@@ -29,13 +31,15 @@ export default function Button({
   href,
   variant = "outline-dark",
   className = "",
+  target,
+  rel,
 }: Props) {
   // px-8→px-10、py-3→py-3.5 でほんの少し存在感を上げる
   const base =
     "inline-block px-10 py-3.5 text-sm tracking-[0.2em] font-sans transition-colors duration-300";
 
   return (
-    <Link href={href} className={`${base} ${variantStyles[variant]} ${className}`}>
+    <Link href={href} target={target} rel={rel} className={`${base} ${variantStyles[variant]} ${className}`}>
       {children}
     </Link>
   );

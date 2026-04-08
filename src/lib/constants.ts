@@ -260,7 +260,7 @@ export const CTA_COPY = {
   ],
   button: {
     label: "LINEで写真を送って相談する",
-    href: "#", // ← LINE URL に差し替え
+    href: "https://lin.ee/tcjWSPD",
   },
   notes: [
     "ご相談は無料です",
@@ -270,7 +270,7 @@ export const CTA_COPY = {
 } as const;
 
 // ─── 共通リンク・中間CTA ───────────────────────────────
-export const LINE_URL = process.env.NEXT_PUBLIC_LINE_URL ?? "#";
+export const LINE_URL = "https://lin.ee/tcjWSPD";
 
 // 電話番号：差し替え用の一元管理
 export const PHONE_NUMBER = "0000-000-0000"; // ← 差し替えてください
@@ -289,16 +289,19 @@ export const FOOTER_COPY = {
       label: "LINEで相談する",
       href: LINE_URL,
       note: "",
+      external: true,
     },
     {
       label: "お電話でのご相談はこちら",
       href: `tel:${PHONE_NUMBER}`,
       note: "お急ぎの際はお電話でも対応しています",
+      external: false,
     },
     {
       label: "フォームからお問い合わせ",
       href: "/contact",
       note: "",
+      external: false,
     },
   ],
   business: {
