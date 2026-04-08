@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ─── デザイントークン ─────────────────────────────────── */
+@theme inline {
+  /* フォント */
+  --font-serif: var(--font-heading), "Noto Serif JP", Georgia, serif;
+  --font-sans: var(--font-body), "Noto Sans JP", sans-serif;
+
+  /* カラー */
+  --color-primary:    #1c1c1c;   /* メインテキスト */
+  --color-secondary:  #5a5a5a;   /* サブテキスト */
+  --color-muted:      #9a9a9a;   /* 補足・キャプション */
+  --color-accent:     #3d5a3e;   /* 深い緑（アクセント） */
+  --color-accent-lt:  #5a7d5b;   /* 少し明るい緑 */
+  --color-surface:    #f8f7f5;   /* 淡いオフホワイト背景 */
+  --color-border:     #d8d4cc;   /* 罫線 */
+}
+
+/* ─── ベーススタイル ───────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-primary);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 日本語テキストの行間を整える */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  line-height: 1.9;
+  letter-spacing: 0.1em;
+}
+
+p {
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+}
