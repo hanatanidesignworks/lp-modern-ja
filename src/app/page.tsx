@@ -15,6 +15,7 @@ import Assurance from "@/features/assurance/Assurance";
 import CTA from "@/features/cta/CTA";
 import InlineCTA from "@/components/ui/InlineCTA";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 /**
  * トップページ。
@@ -53,6 +54,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
