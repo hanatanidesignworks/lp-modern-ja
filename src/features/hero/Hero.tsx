@@ -21,6 +21,7 @@ export default function Hero() {
 
   return (
     <section className="relative h-[100svh] min-h-[600px] overflow-hidden">
+
       {/* ── 背景画像（クロスフェード） ── */}
       {HERO_IMAGES.map((image, index) => (
         <div
@@ -42,65 +43,96 @@ export default function Hero() {
         </div>
       ))}
 
-      {/* ── オーバーレイ：bg-black/45 → /38 に軽減。写真の力を少し取り戻す ── */}
+      {/* ── オーバーレイ ── */}
       <div className="absolute inset-0 bg-black/38" />
 
-      {/* ── テキストコンテンツ ── */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+      {/* ── ゾーン1：ブランドブロック（左上固定・独立） ── */}
+      {/*
+       * position: absolute で他ゾーンと完全に独立させる。
+       * top: 32px / left: 40px はデザイン仕様の固定値。
+       */}
+      <div className="absolute" style={{ top: "32px", left: "40px" }}>
+        {/* 屋号 */}
+        <p className="font-sans text-[13px] font-light tracking-[0.2em] text-white">
+          {HERO_COPY.brand.name}
+        </p>
+        {/* 罫線：height 1px / rgba(255,255,255,0.4) / margin 6px 0 */}
+        <div style={{ height: "1px", background: "rgba(255,255,255,0.4)", margin: "6px 0" }} />
+        {/* サービス名 + 英語表記 */}
+        <div className="flex items-baseline gap-3">
+          <p className="font-sans text-[11px] tracking-[0.15em] text-white">
+            {HERO_COPY.brand.service}
+          </p>
+          <p className="font-sans text-[9px] tracking-[0.2em] text-white/70">
+            {HERO_COPY.brand.en}
+          </p>
+        </div>
+      </div>
 
-          {/* アイブロー：日本語メイン + 英語サブ */}
-          <div className="mb-6">
-            <p className="font-serif text-sm font-light leading-[1.1] tracking-[0.18em] text-white/88 md:text-base">
-              {HERO_COPY.eyebrow.main}
-            </p>
-            <p className="mt-0.5 font-sans text-[9px] tracking-[0.42em] text-white/42 md:text-[10px]">
-              {HERO_COPY.eyebrow.sub}
-            </p>
+      {/* ── ゾーン2〜5：メインコンテンツ（縦中央・左寄り） ── */}
+      {/* padding-left: 40px でブランドブロックと左揃え */}
+      {/* padding-top: 160px でブランドブロック（高さ約80px）＋余白を確保 */}
+      <div className="absolute inset-0 flex items-center" style={{ paddingLeft: "40px", paddingTop: "130px" }}>
+        <div>
+
+          {/* ゾーン2：メインコピー（大・2行） */}
+          <p
+            className="font-serif text-white"
+            style={{
+              fontSize: "clamp(36px, 5.5vw, 66px)",
+              fontWeight: 200,
+              letterSpacing: "0.15em",
+              lineHeight: 1.6,
+              marginBottom: "32px",
+            }}
+          >
+            {HERO_COPY.preheading.map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
+          </p>
+
+          {/* ゾーン3：サブコピー（小・2行） */}
+          <div style={{ marginBottom: "48px" }}>
+            {HERO_COPY.heading.map((line, i) => (
+              <p
+                key={i}
+                className="font-serif font-light"
+                style={{
+                  fontSize: "clamp(14px, 2vw, 20px)",
+                  letterSpacing: "0.2em",
+                  lineHeight: 2.2,
+                  color: "rgba(255,255,255,0.85)",
+                }}
+              >
+                {line}
+              </p>
+            ))}
           </div>
 
-          {/* メインコピー */}
-          <h1
-            className="mb-6 font-serif text-3xl font-light leading-[1.52] text-white sm:text-4xl sm:leading-[1.48] md:text-5xl lg:text-6xl"
+          {/* ゾーン4：キャッチ（CTAボタン直上） */}
+          <p
+            className="font-sans font-light text-white"
+            style={{ fontSize: "11px", letterSpacing: "0.15em", opacity: 0.6, marginBottom: "16px" }}
           >
-            {HERO_COPY.heading.map((line, i) => (
-              <span key={i} className="block">
-                {line}
-              </span>
-            ))}
-          </h1>
-
-          {/* サブコピー */}
-          <p className="mb-9 font-sans text-sm font-light tracking-wider text-white/72 md:text-base">
             {HERO_COPY.subheading}
           </p>
 
-          {/* CTAグループ */}
+          {/* ゾーン5：CTAボタン */}
           <div className="flex flex-col items-start gap-3">
-
-            {/* メインCTA：filled ではなく outline-white で高級感を維持しつつ最強 */}
             <Button href={LINE_URL} variant="outline-white" target="_blank" rel="noopener noreferrer">
               {HERO_COPY.cta}
             </Button>
-
-            {/*
-             * サブCTA：メインより明らかに控えめなトーンで添える
-             * border-white/28・text-white/48 でメインの約半分の存在感
-             * 文字サイズも text-xs（メインは text-sm）で差をつける
-             */}
             <Link
               href="#trial-offer"
               className="inline-block border border-white/28 px-8 py-2.5 font-sans text-xs tracking-[0.18em] text-white/48 transition-colors duration-300 hover:border-white/44 hover:text-white/68"
             >
               {HERO_COPY.subCta}
             </Link>
-
           </div>
 
-          {/* 補足テキスト */}
-          <p className="mt-5 font-sans text-[10px] tracking-[0.18em] text-white/26">
-            {HERO_COPY.note}
-          </p>
+          {/* ボタン下の余白 */}
+          <div className="mt-20" />
+
         </div>
       </div>
 
@@ -119,6 +151,7 @@ export default function Hero() {
           />
         ))}
       </div>
+
     </section>
   );
 }

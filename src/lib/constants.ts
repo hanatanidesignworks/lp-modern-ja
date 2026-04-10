@@ -67,11 +67,15 @@ export const HERO_IMAGES = [
 ] as const;
 
 export const HERO_COPY = {
-  eyebrow: {
-    main: "庭のコンシェルジュ",
-    sub: "PRIVATE GARDEN SERVICE",
+  // 左上ブランドブロック
+  brand: {
+    name: "ハナタニガーデンワークス",
+    service: "庭のコンシェルジュ",
+    en: "PRIVATE GARDEN SERVICE",
   },
-  heading: ["庭は、", "整っているだけで", "暮らしを変える"],
+  // メインコピー直前に添えるプレコピー
+  preheading: ["庭が、", "また好きになる。"],
+  heading: ["整っているだけで", "暮らしを変える"],
   subheading: "整った庭のある暮らしを、日常に。",
   cta: "LINEで写真を送って相談する",
   subCta: "初回限定｜庭リセット体験を見る",
