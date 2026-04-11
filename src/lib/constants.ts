@@ -329,7 +329,7 @@ export const CTA_COPY = {
 export const LINE_URL = "https://lin.ee/tcjWSPD";
 
 // 電話番号：差し替え用の一元管理
-export const PHONE_NUMBER = "0000-000-0000"; // ← 差し替えてください
+export const PHONE_NUMBER = "080-4588-9112";
 
 export const INLINE_CTA_COPY = {
   text: "まずは、お庭の状態を写真でお送りください。",

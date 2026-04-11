@@ -25,8 +25,15 @@ export default function ContactPage() {
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error ?? "送信に失敗しました。");
+        // レスポンスが JSON でない場合も安全に処理する
+        let errorText = "送信に失敗しました。";
+        try {
+          const data = await res.json();
+          if (data?.error) errorText = data.error;
+        } catch {
+          // JSON parse 失敗時はデフォルトメッセージをそのまま使う
+        }
+        throw new Error(errorText);
       }
 
       setStatus("success");
