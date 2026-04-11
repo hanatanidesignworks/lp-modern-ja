@@ -14,7 +14,9 @@ export default function Comparison() {
             className="mb-8 font-serif text-xl font-light tracking-[0.1em] text-[var(--color-primary)] md:text-2xl"
             style={{ lineHeight: 1.85 }}
           >
-            {COMPARISON_COPY.heading}
+            {COMPARISON_COPY.heading.map((line, i) => (
+              <span key={i} className="md:block">{line}</span>
+            ))}
           </h2>
           <p
             className="mb-14 font-sans text-sm font-light tracking-wide text-[var(--color-secondary)] md:text-base"

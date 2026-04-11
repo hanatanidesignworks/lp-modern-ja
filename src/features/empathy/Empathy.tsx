@@ -1,36 +1,44 @@
 import Image from "next/image";
-import Container from "@/components/ui/Container";
 import { EMPATHY_COPY } from "@/lib/constants";
 
 /**
  * Empathyセクション
  *
- * "かっこよさ"よりも"静かな共感"を優先する。
- * 左側テキストの可読性を最優先に、
- * 背景の存在感は少し引いて余白の中で読ませる構成にする。
- *
- * Concept（右寄せ・印象的）に対して
- * Empathy（左寄せ・静かな共感）でバランスを取る。
+ * 自宅の庭・実家の庭（空き家）の2ブロック構成で共感を広げる。
+ * 転換の一行で視点を切り替え、締めで「ひとりで抱えなくていい」に着地。
  */
 
-const ITEM_WEIGHTS = [
-  "font-semibold", // 1行目：観察の入口
-  "font-medium",   // 2行目：日常の忙しさ
-  "font-medium",   // 3行目：繰り返しの共感
-  "font-semibold", // 4行目：行動の手前の躊躇
-] as const;
+// 各ブロックの項目リストを描画するヘルパー
+function ItemList({ items }: { items: readonly string[] }) {
+  return (
+    <ul className="list-none">
+      {items.map((item, i) => (
+        <li
+          key={i}
+          className="font-serif font-light"
+          style={{
+            fontSize: "clamp(14px, 2vw, 18px)",
+            letterSpacing: "0.15em",
+            color: "rgba(255,255,255,0.85)",
+            borderTop: "1px solid rgba(255,255,255,0.15)",
+            padding: "24px 0",
+          }}
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Empathy() {
   return (
     <section
       id="empathy"
-      className="relative overflow-hidden py-32 md:py-44"
+      className="relative overflow-hidden"
+      style={{ paddingTop: "120px", paddingBottom: "120px" }}
     >
-      {/*
-       * 背景画像
-       * [object-position:65%_50%] で右側を優先表示
-       * テキストが左にくるため、写真の主役は右半分で見せる
-       */}
+      {/* ── 背景画像 ── */}
       <Image
         src="/images/empathy/empathy-bg.jpg"
         alt=""
@@ -40,16 +48,7 @@ export default function Empathy() {
         aria-hidden="true"
       />
 
-      {/*
-       * グラデーションオーバーレイ（左方向に濃くなる）
-       *
-       * 0%（右端）  rgba(0,0,0,0.10) → 写真の雰囲気を残す（わずかにベースを持たせる）
-       * 42%（中間）  rgba(0,0,0,0.56) → Conceptより早めに暗さを立ち上げる
-       * 100%（左端） rgba(0,0,0,0.84) → テキスト後ろをしっかり沈める
-       *
-       * Concept の右端（0.74）より強め（0.84）にして
-       * テキスト側の可読性をより確実に確保する
-       */}
+      {/* ── グラデーションオーバーレイ ── */}
       <div
         className="absolute inset-0"
         style={{
@@ -58,43 +57,58 @@ export default function Empathy() {
         }}
       />
 
-      <Container>
-        <div className="relative z-10">
-          <div className="max-w-[400px]">
+      {/* ── コンテンツ ── */}
+      <div
+        className="relative z-10"
+        style={{ paddingLeft: "6vw", maxWidth: "640px" }}
+      >
 
-            <div className="mb-8 h-px w-6 bg-white/25" />
+        {/* タイトル */}
+        <h2
+          className="font-serif font-light text-white"
+          style={{
+            fontSize: "clamp(20px, 3vw, 32px)",
+            letterSpacing: "0.2em",
+            marginBottom: "48px",
+          }}
+        >
+          {EMPATHY_COPY.heading}
+        </h2>
 
-            {/* 見出し：text-white */}
-            <h2
-              className="mb-12 font-sans text-xl font-medium tracking-[0.1em] text-white md:mb-14 md:text-2xl"
-              style={{ lineHeight: 1.85 }}
-            >
-              {EMPATHY_COPY.heading}
-            </h2>
+        {/* 自宅ブロック */}
+        <ItemList items={EMPATHY_COPY.homeItems} />
 
-            {/*
-             * 項目リスト
-             *
-             * テキスト：text-white/82（見出しより一段階落として階層を作る）
-             * ボーダー：border-white/18（暗背景に溶け込む薄さ）
-             * py-6 md:py-8：Conceptより余白を増やして静かに読ませる
-             * lineHeight: 2.1：行間を広げて呼吸を確保する
-             */}
-            <ul className="list-none">
-              {EMPATHY_COPY.items.map((item, i) => (
-                <li
-                  key={i}
-                  className={`border-b border-white/18 py-6 font-sans text-base tracking-[0.08em] text-white/82 first:border-t last:border-b-0 last:pt-10 md:py-8 md:text-[1.0625rem] md:last:pt-11 ${ITEM_WEIGHTS[i]}`}
-                  style={{ lineHeight: 2.1 }}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+        {/* 転換の一行 */}
+        <p
+          className="font-serif font-light"
+          style={{
+            fontSize: "clamp(13px, 1.8vw, 16px)",
+            letterSpacing: "0.2em",
+            color: "rgba(255,255,255,0.5)",
+            margin: "48px 0",
+          }}
+        >
+          {EMPATHY_COPY.transition}
+        </p>
 
-          </div>
-        </div>
-      </Container>
+        {/* 空き家ブロック */}
+        <ItemList items={EMPATHY_COPY.vacantItems} />
+
+        {/* 締めの一行 */}
+        <p
+          className="font-serif font-light text-white"
+          style={{
+            fontSize: "clamp(16px, 2.5vw, 24px)",
+            letterSpacing: "0.2em",
+            marginTop: "64px",
+            paddingTop: "48px",
+            borderTop: "1px solid rgba(255,255,255,0.3)",
+          }}
+        >
+          {EMPATHY_COPY.closing}
+        </p>
+
+      </div>
     </section>
   );
 }

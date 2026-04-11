@@ -1,41 +1,72 @@
 import Container from "@/components/ui/Container";
 import { AWARENESS_COPY } from "@/lib/constants";
 
+/**
+ * Awarenessセクション
+ *
+ * 「まとめて整える」やり方の問題を説明し、
+ * 庭のコンシェルジュの考え方（都度・少しずつ）へ誘導する。
+ */
 export default function Awareness() {
   return (
-    <section className="bg-[var(--color-surface)] py-28 md:py-40">
+    <section
+      className="bg-[var(--color-surface)]"
+      style={{ paddingTop: "120px", paddingBottom: "120px" }}
+    >
       <Container>
-        <div className="max-w-[520px]">
+        {/*
+         * max-w-[640px]：見出しを1行に収めつつ、本文の可読性も維持
+         */}
+        <div className="max-w-[640px]">
 
-          <p className="mb-8 font-sans text-[10px] tracking-[0.4em] text-[var(--color-muted)]">
+          {/* ── セクションラベル ── */}
+          <p
+            className="font-sans font-light"
+            style={{
+              fontSize: "clamp(11px, 1.5vw, 13px)",
+              letterSpacing: "0.3em",
+              color: "rgba(0,0,0,0.4)",
+              marginBottom: "48px",
+            }}
+          >
             {AWARENESS_COPY.eyebrow}
           </p>
+
+          {/* ── 見出し（句読点直後で2行） ── */}
           <h2
-            className="mb-12 font-serif text-xl font-light tracking-[0.1em] text-[var(--color-primary)] md:text-2xl"
-            style={{ lineHeight: 1.85 }}
+            className="font-serif font-light"
+            style={{
+              fontSize: "clamp(18px, 2.5vw, 28px)",
+              letterSpacing: "0.15em",
+              color: "var(--color-primary)",
+              lineHeight: 1.8,
+              marginBottom: "64px",
+            }}
           >
-            {AWARENESS_COPY.heading}
+            {AWARENESS_COPY.heading.map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
           </h2>
 
-          <div className="space-y-5">
-            {AWARENESS_COPY.body.map((line, i) => (
+          {/* ── 本文4ブロック ── */}
+          <div>
+            {AWARENESS_COPY.body.map((block, i) => (
               <p
                 key={i}
-                className="font-sans text-sm font-light tracking-wide text-[var(--color-secondary)] md:text-base"
-                style={{ lineHeight: 2.2 }}
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(14px, 1.8vw, 17px)",
+                  fontWeight: block.highlight ? 400 : 300,
+                  letterSpacing: "0.12em",
+                  lineHeight: 1.7,
+                  color: block.highlight ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0.75)",
+                  marginBottom: i < AWARENESS_COPY.body.length - 1 ? "48px" : 0,
+                  whiteSpace: "pre-line",
+                }}
               >
-                {line}
+                {block.text}
               </p>
             ))}
-          </div>
-
-          <div className="mt-14 border-t border-[#ece8e2] pt-12 md:mt-16 md:pt-14">
-            <p
-              className="font-serif text-sm font-light tracking-[0.1em] text-[var(--color-muted)] md:text-base"
-              style={{ lineHeight: 2.0 }}
-            >
-              {AWARENESS_COPY.transition}
-            </p>
           </div>
 
         </div>

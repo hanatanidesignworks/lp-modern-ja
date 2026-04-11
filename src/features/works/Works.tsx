@@ -49,12 +49,6 @@ export default function Works() {
                 </div>
               )}
 
-              {/* sliderNote：1件目のみ表示 */}
-              {i === 0 && (
-                <p className="mt-3 font-sans text-xs font-light tracking-wide text-[var(--color-muted)]" style={{ lineHeight: 1.9 }}>
-                  {WORKS_COPY.sliderNote}
-                </p>
-              )}
 
               {/* text */}
               <div className="mt-4 space-y-2">
