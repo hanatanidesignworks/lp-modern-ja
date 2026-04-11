@@ -48,13 +48,23 @@ export default function Assurance() {
                   {item.question}
                 </h3>
 
-                {/* 回答：sans で読みやすく */}
+                {/* 回答：sans で読みやすく / \n\n で段落分け */}
                 <p
                   className="font-sans text-sm font-light tracking-wide text-[var(--color-secondary)] md:text-base"
-                  style={{ lineHeight: 2.2 }}
+                  style={{ lineHeight: 2.0, whiteSpace: "pre-line" }}
                 >
                   {item.answer}
                 </p>
+
+                {/* 補足文（note フィールドがある項目のみ・本文と同スタイル） */}
+                {"note" in item && item.note && (
+                  <p
+                    className="font-sans text-sm font-light tracking-wide text-[var(--color-secondary)] md:text-base"
+                    style={{ lineHeight: 2.0, marginTop: "12px" }}
+                  >
+                    {item.note}
+                  </p>
+                )}
               </li>
             ))}
           </ul>

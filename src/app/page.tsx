@@ -12,6 +12,7 @@ import Transparency from "@/features/transparency/Transparency";
 import Partnership from "@/features/partnership/Partnership";
 import AreaStrategy from "@/features/area-strategy/AreaStrategy";
 import Assurance from "@/features/assurance/Assurance";
+import FAQ from "@/features/faq/FAQ";
 import CTA from "@/features/cta/CTA";
 import InlineCTA from "@/components/ui/InlineCTA";
 import Footer from "@/components/layout/Footer";
@@ -51,6 +52,7 @@ export default function Home() {
         <Partnership />
         <AreaStrategy />
         <Assurance />
+        <FAQ />
         <CTA />
       </main>
       <Footer />

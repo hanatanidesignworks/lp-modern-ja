@@ -56,6 +56,30 @@ export default function CTA() {
             ))}
           </div>
 
+          {/* 返金保証の補足文（ボタン直前・静かな信頼として添える） */}
+          <div className="mb-6 text-center">
+            {CTA_COPY.guarantee.body.map((line, i) => (
+              <p
+                key={i}
+                className="font-sans font-light"
+                style={{
+                  fontSize: "clamp(12px, 1.5vw, 14px)",
+                  letterSpacing: "0.12em",
+                  color: "rgba(0,0,0,0.5)",
+                  lineHeight: 2.0,
+                }}
+              >
+                {line}
+              </p>
+            ))}
+            <span
+              className="font-sans font-light"
+              style={{ fontSize: "11px", opacity: 0.4, display: "block", marginTop: "8px" }}
+            >
+              {CTA_COPY.guarantee.note}
+            </span>
+          </div>
+
           {/*
            * メインボタン
            *
