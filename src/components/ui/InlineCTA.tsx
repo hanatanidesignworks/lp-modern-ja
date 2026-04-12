@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { INLINE_CTA_COPY, LINE_URL } from "@/lib/constants";
 
@@ -11,7 +12,11 @@ import { INLINE_CTA_COPY, LINE_URL } from "@/lib/constants";
  * bg-[var(--color-surface)]：前後のセクションと柔らかく区別。
  * 余白・フォントサイズ・ボタンのスケールはすべて既存LPのトーンに揃える。
  */
-export default function InlineCTA() {
+type Props = {
+  showPhotoGuide?: boolean;
+};
+
+export default function InlineCTA({ showPhotoGuide = false }: Props) {
   return (
     <section className="bg-[var(--color-surface)] py-16 md:py-20">
       <Container>
@@ -23,6 +28,16 @@ export default function InlineCTA() {
           >
             {INLINE_CTA_COPY.text}
           </p>
+
+          {showPhotoGuide && (
+            <Link
+              href="/photo-guide"
+              className="cta-guide-link mb-7 font-sans font-light text-[var(--color-primary)] no-underline"
+              style={{ fontSize: "13px", letterSpacing: "0.1em" }}
+            >
+              写真の撮り方がわからない方はこちら
+            </Link>
+          )}
 
           <a
             href={LINE_URL}

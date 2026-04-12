@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { CTA_COPY, LINE_URL } from "@/lib/constants";
 
@@ -110,6 +111,17 @@ export default function CTA() {
                 {note}
               </span>
             ))}
+          </div>
+
+          {/* 写真の撮り方ガイドへの導線 */}
+          <div className="mt-8">
+            <Link
+              href="/photo-guide"
+              className="cta-guide-link font-sans font-light tracking-[0.12em] text-[var(--color-primary)] no-underline"
+              style={{ fontSize: "13px" }}
+            >
+              写真の撮り方がわからない方はこちら
+            </Link>
           </div>
 
         </div>

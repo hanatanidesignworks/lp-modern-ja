@@ -46,3 +46,29 @@ p {
   line-height: 2.2;
   letter-spacing: 0.05em;
 }
+
+/* ─── photo-guide ページ用ホバーユーティリティ ─────────── */
+.pg-back-link {
+  color: var(--color-muted);
+  transition: color 0.25s ease;
+}
+.pg-back-link:hover {
+  color: var(--color-secondary);
+}
+
+.pg-cta-link {
+  background: var(--color-primary);
+  transition: background 0.3s ease;
+}
+.pg-cta-link:hover {
+  background: #333;
+}
+
+/* CTA セクション：写真ガイド導線 */
+.cta-guide-link {
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+.cta-guide-link:hover {
+  opacity: 1;
+}

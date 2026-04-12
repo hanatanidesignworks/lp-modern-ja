@@ -43,7 +43,7 @@ export default function Home() {
         <ConciergeModel />
         <Service />
         <Comparison />
-        <InlineCTA />
+        <InlineCTA showPhotoGuide />
         <Works />
         <TrialOffer />
         <InlineCTA />
