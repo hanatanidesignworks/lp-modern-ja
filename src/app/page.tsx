@@ -17,6 +17,7 @@ import CTA from "@/features/cta/CTA";
 import InlineCTA from "@/components/ui/InlineCTA";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import TrialBanner from "@/components/ui/TrialBanner";
 
 /**
  * トップページ。
@@ -57,6 +58,7 @@ export default function Home() {
       </main>
       <Footer />
       <ScrollToTop />
+      <TrialBanner />
     </>
   );
 }
