@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif_JP, Noto_Sans_JP } from "next/font/google";
+import Script from "next/script";
 import "@/styles/globals.css";
 
 // 見出し用：Noto Serif JP（和モダン×高級感を体現する明朝体）
@@ -38,7 +39,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSerifJP.variable} ${notoSansJP.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QE0PPVVGMD"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QE0PPVVGMD');
+        `}</Script>
+        {children}
+      </body>
     </html>
   );
 }
