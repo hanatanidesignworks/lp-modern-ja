@@ -119,7 +119,7 @@ export default function Hero() {
 
           {/* ゾーン5：CTAボタン */}
           <div className="flex flex-col items-start gap-3">
-            <Button href={LINE_URL} variant="outline-white" target="_blank" rel="noopener noreferrer">
+            <Button href={LINE_URL} variant="outline-white" target="_blank" rel="noopener noreferrer" data-line-label="fv_line_button">
               {HERO_COPY.cta}
             </Button>
             <Link

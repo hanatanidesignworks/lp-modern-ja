@@ -241,6 +241,7 @@ export default function PhotoGuidePage() {
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-line-label="photo_guide_line_button"
             className="pg-cta-link"
             style={{
               display: "inline-block",

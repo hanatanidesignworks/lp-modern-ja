@@ -37,6 +37,7 @@ export default function Footer() {
               <a
                 href={contact.href}
                 {...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(contact.href.includes("lin.ee") ? { "data-line-label": "footer_line_button" } : {})}
                 className="font-sans text-sm font-light tracking-[0.12em] text-white/55 underline-offset-4 transition-colors duration-300 hover:text-white/75 hover:underline"
               >
                 {contact.label}

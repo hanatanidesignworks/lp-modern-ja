@@ -14,9 +14,10 @@ import { INLINE_CTA_COPY, LINE_URL } from "@/lib/constants";
  */
 type Props = {
   showPhotoGuide?: boolean;
+  lineLabel?: string;
 };
 
-export default function InlineCTA({ showPhotoGuide = false }: Props) {
+export default function InlineCTA({ showPhotoGuide = false, lineLabel = "inline_cta_line_button" }: Props) {
   return (
     <section className="bg-[var(--color-surface)] py-16 md:py-20">
       <Container>
@@ -43,6 +44,7 @@ export default function InlineCTA({ showPhotoGuide = false }: Props) {
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-line-label={lineLabel}
             className="inline-block rounded border border-[var(--color-primary)] px-8 py-3 font-sans text-xs tracking-[0.2em] text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-white"
           >
             {INLINE_CTA_COPY.button}

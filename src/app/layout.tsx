@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif_JP, Noto_Sans_JP } from "next/font/google";
 import Script from "next/script";
 import "@/styles/globals.css";
+import LineClickTracker from "@/components/analytics/LineClickTracker";
 
 // 見出し用：Noto Serif JP（和モダン×高級感を体現する明朝体）
 const notoSerifJP = Noto_Serif_JP({
@@ -51,6 +52,7 @@ export default function RootLayout({
           gtag('config', 'G-QE0PPVVGMD');
         `}</Script>
         {children}
+        <LineClickTracker />
       </body>
     </html>
   );

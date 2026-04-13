@@ -91,6 +91,7 @@ export default function CTA() {
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-line-label="cta_line_button"
             className="inline-block rounded bg-[var(--color-primary)] px-10 py-4 font-sans text-sm tracking-[0.2em] text-white transition-colors duration-300 hover:bg-neutral-800"
           >
             {CTA_COPY.button.label}

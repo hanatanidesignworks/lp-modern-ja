@@ -10,6 +10,7 @@ type Props = {
   className?: string;
   target?: string;
   rel?: string;
+  "data-line-label"?: string;
 };
 
 const variantStyles: Record<Variant, string> = {
@@ -33,13 +34,20 @@ export default function Button({
   className = "",
   target,
   rel,
+  "data-line-label": dataLineLabel,
 }: Props) {
   // px-8→px-10、py-3→py-3.5 でほんの少し存在感を上げる
   const base =
     "inline-block px-10 py-3.5 text-sm tracking-[0.2em] font-sans transition-colors duration-300";
 
   return (
-    <Link href={href} target={target} rel={rel} className={`${base} ${variantStyles[variant]} ${className}`}>
+    <Link
+      href={href}
+      target={target}
+      rel={rel}
+      data-line-label={dataLineLabel}
+      className={`${base} ${variantStyles[variant]} ${className}`}
+    >
       {children}
     </Link>
   );
