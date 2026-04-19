@@ -90,7 +90,7 @@ export default function Footer() {
               marginBottom: "8px",
             }}
           >
-            庭のことをもっと知りたい方へ
+            サービスをもっと知りたい方へ
           </span>
           <a
             href="https://hanatanigardenworks.com"
@@ -103,7 +103,7 @@ export default function Footer() {
               opacity: 0.7,
             }}
           >
-            ハナタニガーデンワークス　庭の話 →
+            ハナタニガーデンワークス　庭のコンシェルジュ →
           </a>
         </div>
 
