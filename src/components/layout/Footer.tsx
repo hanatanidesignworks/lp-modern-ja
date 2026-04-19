@@ -72,6 +72,41 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* ── ブログへの導線 ── */}
+        <div
+          className="mt-10 text-center"
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.15)",
+            paddingTop: "24px",
+          }}
+        >
+          <span
+            className="font-sans font-light text-white"
+            style={{
+              display: "block",
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              opacity: 0.4,
+              marginBottom: "8px",
+            }}
+          >
+            庭のことをもっと知りたい方へ
+          </span>
+          <a
+            href="https://hanatanigardenworks.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-sans font-light text-white no-underline transition-opacity duration-300 hover:opacity-100"
+            style={{
+              fontSize: "13px",
+              letterSpacing: "0.15em",
+              opacity: 0.7,
+            }}
+          >
+            ハナタニガーデンワークス　庭の話 →
+          </a>
+        </div>
+
         {/* ── コピーライト ── */}
         <p className="mt-7 text-center font-sans text-[10px] font-light tracking-[0.25em] text-white/18">
           {FOOTER_COPY.copyright}
