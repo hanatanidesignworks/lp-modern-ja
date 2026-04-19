@@ -71,7 +71,7 @@ export const HERO_COPY = {
   brand: {
     name: "ハナタニガーデンワークス",
     service: "庭のコンシェルジュ",
-    en: "PRIVATE GARDEN SERVICE",
+    en: "年間管理サービス",
   },
   // メインコピー直前に添えるプレコピー
   preheading: ["庭が、", "また好きになる。"],
