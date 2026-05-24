@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
-import { INLINE_CTA_COPY, LINE_URL } from "@/lib/constants";
+import { INLINE_CTA_COPY } from "@/lib/constants";
 
 /**
  * 中間CTA（静かな行動促進）
@@ -14,10 +14,9 @@ import { INLINE_CTA_COPY, LINE_URL } from "@/lib/constants";
  */
 type Props = {
   showPhotoGuide?: boolean;
-  lineLabel?: string;
 };
 
-export default function InlineCTA({ showPhotoGuide = false, lineLabel = "inline_cta_line_button" }: Props) {
+export default function InlineCTA({ showPhotoGuide = false }: Props) {
   return (
     <section className="bg-[var(--color-surface)] py-16 md:py-20">
       <Container>
@@ -40,15 +39,12 @@ export default function InlineCTA({ showPhotoGuide = false, lineLabel = "inline_
             </Link>
           )}
 
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-line-label={lineLabel}
+          <Link
+            href="/contact"
             className="inline-block rounded border border-[var(--color-primary)] px-8 py-3 font-sans text-xs tracking-[0.2em] text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-white"
           >
             {INLINE_CTA_COPY.button}
-          </a>
+          </Link>
 
           <p className="mt-5 font-sans text-[11px] tracking-wide text-[var(--color-muted)]">
             {INLINE_CTA_COPY.note}

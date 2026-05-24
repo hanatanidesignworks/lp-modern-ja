@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import { HERO_IMAGES, HERO_COPY, LINE_URL } from "@/lib/constants";
+import { HERO_IMAGES, HERO_COPY } from "@/lib/constants";
 
 // 各画像の表示時間（ms）
 const SLIDE_INTERVAL = 6000;
@@ -119,7 +119,7 @@ export default function Hero() {
 
           {/* ゾーン5：CTAボタン */}
           <div className="flex flex-col items-start gap-3">
-            <Button href={LINE_URL} variant="outline-white" target="_blank" rel="noopener noreferrer" data-line-label="fv_line_button">
+            <Button href="/contact" variant="outline-white">
               {HERO_COPY.cta}
             </Button>
             <Link

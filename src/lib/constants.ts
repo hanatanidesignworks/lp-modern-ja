@@ -77,7 +77,7 @@ export const HERO_COPY = {
   preheading: ["庭が、", "また好きになる。"],
   heading: ["整っているだけで", "暮らしを変える"],
   subheading: "整った庭のある暮らしを、日常に。",
-  cta: "LINEで写真を送って相談する",
+  cta: "フォームからご相談する",
   subCta: "初回限定｜庭リセット体験を見る",
   note: "※強引な営業は一切ありません",
 } as const;
@@ -315,8 +315,8 @@ export const CTA_COPY = {
     note: "※ 作業後3日以内、LINEにて受付",
   },
   button: {
-    label: "LINEで写真を送って相談する",
-    href: "https://lin.ee/tcjWSPD",
+    label: "フォームからご相談する",
+    href: "/contact",
   },
   notes: [
     "ご相談は無料です",
@@ -332,9 +332,9 @@ export const LINE_URL = "https://lin.ee/tcjWSPD";
 export const PHONE_NUMBER = "080-4588-9112";
 
 export const INLINE_CTA_COPY = {
-  text: "まずは、お庭の状態を写真でお送りください。",
-  button: "LINEで相談する",
-  note: "写真だけでも大丈夫です",
+  text: "まずは、お庭の状態をお気軽にご相談ください。",
+  button: "フォームで相談する",
+  note: "お気軽にどうぞ",
 } as const;
 
 // ─── Footer ────────────────────────────────────────────

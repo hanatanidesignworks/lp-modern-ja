@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
-import { CTA_COPY, LINE_URL } from "@/lib/constants";
+import { CTA_COPY } from "@/lib/constants";
 
 /**
  * CTAセクション
@@ -87,15 +87,12 @@ export default function CTA() {
            * hover:bg-neutral-800：控えめに少し明るくなる変化
            * transition-colors duration-300 で静かに反応させる
            */}
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-line-label="cta_line_button"
+          <Link
+            href="/contact"
             className="inline-block rounded bg-[var(--color-primary)] px-10 py-4 font-sans text-sm tracking-[0.2em] text-white transition-colors duration-300 hover:bg-neutral-800"
           >
             {CTA_COPY.button.label}
-          </a>
+          </Link>
           {/*
            * 補足テキスト（3項目）
            *

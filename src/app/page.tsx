@@ -43,13 +43,13 @@ export default function Home() {
         <ConciergeModel />
         <Service />
         <Comparison />
-        <InlineCTA showPhotoGuide lineLabel="inline_cta_after_comparison" />
+        <InlineCTA showPhotoGuide />
         <Works />
         <TrialOffer />
-        <InlineCTA lineLabel="inline_cta_after_trial_offer" />
+        <InlineCTA />
         <Flow />
         <Transparency />
-        <InlineCTA lineLabel="inline_cta_after_transparency" />
+        <InlineCTA />
         <Partnership />
         <AreaStrategy />
         <Assurance />

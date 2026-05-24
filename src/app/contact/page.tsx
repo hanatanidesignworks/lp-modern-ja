@@ -36,6 +36,7 @@ export default function ContactPage() {
         throw new Error(errorText);
       }
 
+      window.gtag?.("event", "form_submit", { method: "contact_form" });
       setStatus("success");
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : "送信に失敗しました。");
@@ -93,7 +94,7 @@ export default function ContactPage() {
               className="mb-4 font-sans text-sm font-light tracking-wide text-[var(--color-secondary)]"
               style={{ lineHeight: 2.2 }}
             >
-              LINEでのご相談が難しい方は、こちらからご連絡ください。
+              お気軽にお問い合わせください。
             </p>
             <p
               className="mb-14 font-sans text-xs font-light tracking-wide text-[var(--color-muted)]"
