@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "送信完了｜ハナタニガーデンワークス",
-  robots: "noindex",
-};
-
 export default function ThanksPage() {
+  useEffect(() => {
+    window.gtag?.("event", "contact_form_submit");
+  }, []);
+
   return (
     <div className="min-h-screen bg-[var(--color-surface)]">
       <div className="mx-auto max-w-[480px] px-6 py-20 md:py-28">
