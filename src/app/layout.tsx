@@ -50,6 +50,7 @@ export default function RootLayout({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-QE0PPVVGMD');
+          gtag('config', 'AW-18097356348');
         `}</Script>
         {children}
         <LineClickTracker />
