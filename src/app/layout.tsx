@@ -1,24 +1,7 @@
 import type { Metadata } from "next";
-import { Noto_Serif_JP, Noto_Sans_JP } from "next/font/google";
 import Script from "next/script";
 import "@/styles/globals.css";
 import LineClickTracker from "@/components/analytics/LineClickTracker";
-
-// 見出し用：Noto Serif JP（和モダン×高級感を体現する明朝体）
-const notoSerifJP = Noto_Serif_JP({
-  weight: ["300", "400"],
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-// 本文・UI用：Noto Sans JP（読みやすく洗練されたゴシック体）
-const notoSansJP = Noto_Sans_JP({
-  weight: ["300", "400", "500"],
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "庭の剪定・伐採・除草・年間管理｜庭のコンシェルジュ｜八尾市・大阪",
@@ -39,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSerifJP.variable} ${notoSansJP.variable}`}>
+    <html lang="ja">
       <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QE0PPVVGMD"

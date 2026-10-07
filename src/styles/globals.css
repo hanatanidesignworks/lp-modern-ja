@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Webフォントは読み込まず端末内蔵フォントを使う（旧LPは全パスを本体サイトへ転送するためフォント不要）。
+   コンポーネントのインライン指定が参照する --font-heading / --font-body もここで定義する。 */
+:root {
+  --font-heading: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP",
+    "Noto Serif CJK JP", serif;
+  --font-body: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Noto Sans CJK JP", Meiryo, sans-serif;
+}
+
 /* ─── デザイントークン ─────────────────────────────────── */
 @theme inline {
   /* フォント */
